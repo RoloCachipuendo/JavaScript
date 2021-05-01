@@ -7,7 +7,6 @@ const onLukeResponse = function (luke) {
   console.log(`Hola soy ${luke.name}`);
 };
 
-
 /**
  * Esto es un poco más refactorizado
  */
@@ -26,7 +25,19 @@ function onError(id) {
 obtenerPersonaje(1)
   .then(function (personaje) {
     console.log(`Hola, soy ${personaje.name}`);
+    return obtenerPersonaje(2);
+  })
+  .then((personaje) => {
+    console.log(`Hola, soy ${personaje.name}`);
+    return obtenerPersonaje(3);
+  })
+  .then((person) => {
+    console.log(`Hola, soy ${person.name}`);
+    return obtenerPersonaje(4);
+  })
+  .then(person=>{
+    console.log(`Hola, soy ${person.name}`);
   })
   .catch(onError);
 
-  //Encadenar varias promesas
+//Encadenar varias promesas
